@@ -1,0 +1,26 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --reporter mochawesome",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:vrt":"percy exec cypress run --spec cypress/integration/test-suit-for-percey.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@percy/cli": "*",
+    "@percy/cypress": "^3.1.0",
+    "cypress": "^7.1.0"
+  },
+  "dependencies": {
+    "faker": "^5.5.3",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0"
+  }
+}

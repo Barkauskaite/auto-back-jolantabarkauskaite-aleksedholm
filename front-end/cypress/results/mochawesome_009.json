@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-04-29T19:46:00.270Z",
+    "end": "2021-04-29T19:46:19.839Z",
+    "duration": 19569,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d7569ac5-192c-4a74-94d3-335dfe572b82",
+      "title": "",
+      "fullFile": "cypress/integration/test-suit-for-percey.spec.js",
+      "file": "cypress/integration/test-suit-for-percey.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7b7ebee6-c91a-4854-8de3-cf036650cb01",
+          "title": "Test suit with Page-objects",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1.Perform a valid login",
+              "fullTitle": "Test suit with Page-objects 1.Perform a valid login",
+              "timedOut": null,
+              "duration": 4436,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "dashboardFuncs.performLogout('Login'); //here at login-page\ncy.log('At Login-page.');\ncy.percySnapshot('Login-page');",
+              "err": {},
+              "uuid": "5b81ec04-fce2-4cef-9c90-0ddaea3b503d",
+              "parentUUID": "7b7ebee6-c91a-4854-8de3-cf036650cb01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2.View rooms and come back to dashboard-page",
+              "fullTitle": "Test suit with Page-objects 2.View rooms and come back to dashboard-page",
+              "timedOut": null,
+              "duration": 5223,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(1) > .btn').click();\ncy.contains('Rooms'); //here at rooms-page\ncy.wait(500);\ncy.log('At Rooms page.');\ncy.percySnapshot('Rooms-page');\ncy.wait(500);\nroomsFuncs.backToDashboardFromRooms(\"Tester Hotel Overview\");\n/*here at dashboard-page again\ncy.wait(500)\ncy.log('At Dashboard page.')\ncy.percySnapshot('Dashboard-page')*/",
+              "err": {},
+              "uuid": "820a71d8-bda3-47d8-9c84-eea39142014e",
+              "parentUUID": "7b7ebee6-c91a-4854-8de3-cf036650cb01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3.View Clients and come back to the dashboard page",
+              "fullTitle": "Test suit with Page-objects 3.View Clients and come back to the dashboard page",
+              "timedOut": null,
+              "duration": 4956,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "dashboardFuncs.viewClients(\"Clients\"); //here at clients-page\ncy.wait(500);\ncy.log('At Clienta page.');\ncy.percySnapshot('Clients-page');\ncy.wait(500);\nclientFuncs.backToDashboardFromClients(\"Tester Hotel Overview\");",
+              "err": {},
+              "uuid": "58a6c986-f57a-40c8-8e04-fb8b2437c132",
+              "parentUUID": "7b7ebee6-c91a-4854-8de3-cf036650cb01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4.View Bills and come back to the dashboard page",
+              "fullTitle": "Test suit with Page-objects 4.View Bills and come back to the dashboard page",
+              "timedOut": null,
+              "duration": 4893,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "dashboardFuncs.viewBills(\"Bills\"); //here at bills-page\ncy.wait(500);\ncy.log('At Bills-page.');\ncy.percySnapshot('Bills-page');\ncy.wait(500);\nbillsFuncs.backToDashboardFromBills(\"Tester Hotel Overview\");",
+              "err": {},
+              "uuid": "998bc3da-32ff-45d1-b6e6-f4ccafd11cae",
+              "parentUUID": "7b7ebee6-c91a-4854-8de3-cf036650cb01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5b81ec04-fce2-4cef-9c90-0ddaea3b503d",
+            "820a71d8-bda3-47d8-9c84-eea39142014e",
+            "58a6c986-f57a-40c8-8e04-fb8b2437c132",
+            "998bc3da-32ff-45d1-b6e6-f4ccafd11cae"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19508,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": "false",
+        "html": "false",
+        "json": "true"
+      },
+      "version": "5.2.0"
+    }
+  }
+}
