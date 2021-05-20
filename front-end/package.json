@@ -7,7 +7,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --reporter mochawesome",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:vrt":"percy exec cypress run --spec cypress/integration/test-suit-for-percey.spec.js"
+    "test:vrt": "percy exec cypress run --spec cypress/integration/test-suit-for-percey.spec.js"
   },
   "keywords": [],
   "author": "",

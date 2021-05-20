@@ -26,18 +26,17 @@ describe('Test suit with Page-objects', () => {
 
     beforeEach(() => {
         cy.visit("/")
-        loginFuncs.checkLoginPageTitle
+        loginFuncs.checkLoginPageTitle()
         loginFuncs.performValidLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c','Welcome')
         cy.wait(500)
         
      })
 
+
     it('1.Perform a valid login', () => {
-       //cy.visit('http://localhost:3000')  
-       //loginFuncs.checkLoginPageTitle
-       //loginFuncs.performValidLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c','Welcome')
        dashboardFuncs.performLogout('Login')
     })
+
 
     it('2.View rooms and come back to dashboard-page', () =>{
         dashboardFuncs.viewRooms("Rooms")
@@ -99,4 +98,4 @@ describe('Test suit with Page-objects', () => {
     after(() => {
       dashboardFuncs.performLogout('Login')
    })
-   })
+})
