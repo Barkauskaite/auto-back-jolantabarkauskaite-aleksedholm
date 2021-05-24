@@ -41,4 +41,9 @@ describe('Test suit', () => {
     it ('10.View the bills endpoint',()=>{
         cy.authenticate().then(cy.bills).then(cy.logout)
     })
+
+    /*it('delete Last example',()=>{
+        cy.authenticate().then(cy.lastID).then(cy.logout)
+    })*/
+
 })

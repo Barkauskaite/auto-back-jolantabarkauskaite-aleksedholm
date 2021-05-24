@@ -96,7 +96,7 @@ Cypress.Commands.add('create_a_room', ()=>{
        }))
 })
 
-Cypress.Commands.add('edit_a_room', ()=>{
+/*Cypress.Commands.add('edit_a_room', ()=>{
 
     cy.request({
         method:'PUT',
@@ -117,9 +117,9 @@ Cypress.Commands.add('edit_a_room', ()=>{
            expect(response.status).to.eq(200)
            cy.log(JSON.stringify(response.body))
        }))
-})
+})*/
 
-Cypress.Commands.add('delete_a_room', ()=>{
+/*Cypress.Commands.add('delete_a_room', ()=>{
 
     cy.request({
         method:'DELETE',
@@ -132,7 +132,7 @@ Cypress.Commands.add('delete_a_room', ()=>{
            expect(response.status).to.eq(200)
            cy.log(JSON.stringify(response.body))
        }))
-})
+})*/
 
 Cypress.Commands.add('clients', ()=>{
 
@@ -169,7 +169,7 @@ Cypress.Commands.add('create_a_client', ()=>{
        }))
 })
 
-Cypress.Commands.add('edit_a_client', ()=>{
+/*Cypress.Commands.add('edit_a_client', ()=>{
 
     cy.request({
         method:'PUT',
@@ -187,9 +187,9 @@ Cypress.Commands.add('edit_a_client', ()=>{
            expect(response.status).to.eq(200)
            cy.log(JSON.stringify(response.body))
        }))
-})
+})*/
 
-Cypress.Commands.add('delete_a_client', ()=>{
+/*Cypress.Commands.add('delete_a_client', ()=>{
 
     cy.request({
         method:'DELETE',
@@ -202,7 +202,7 @@ Cypress.Commands.add('delete_a_client', ()=>{
            expect(response.status).to.eq(200)
            cy.log(JSON.stringify(response.body))
        }))
-})
+})*/
 
 Cypress.Commands.add('bills', ()=>{
 
@@ -219,7 +219,7 @@ Cypress.Commands.add('bills', ()=>{
        }))
 })
 
-/*it.only('GET request towards /api/client/{lastID}', () => {
+/*it('GET request towards /api/client/{lastID}', () => {
         // Authentication; Getting a valid token
         cy.authenticate().then((response => {
             // Get request to get all clients in order to extract the lastID
@@ -248,4 +248,142 @@ Cypress.Commands.add('bills', ()=>{
                 }).then((response => {
                     expect(response.status).to.eq(200)
                     cy.log(JSON.stringify(response.body))
-                }))*/
+                }))
+
+            }))
+        }))
+       
+    })*/
+
+    Cypress.Commands.add('edit_a_client', ()=>{
+        cy.authenticate().then((response => {      
+            cy.request({
+                method: 'GET', 
+                url: 'http://localhost:3000/api/clients', 
+                headers: {
+                    'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                    'Content-Type': 'application/json'
+                }
+            }).then((response =>{
+                expect(response.status).to.eq(200)
+                let lastID = response.body[response.body.length -1].id
+                cy.log(lastID)
+                cy.request({
+                    method: 'PUT', 
+                    url: 'http://localhost:3000/api/client/'+lastID, 
+                    headers: {
+                        'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                        'Content-Type': 'application/json'
+                    },
+                    body:{"id": lastID,
+                    "name":"Tommy Q",
+                    "email":"jonas.Q@example.com",
+                    "telephone":"070 000 22222"
+                } 
+                }).then((response => {
+                    expect(response.status).to.eq(200)
+                    cy.log(JSON.stringify(response.body))
+                }))
+
+            }))
+        }))
+       
+    })
+    
+    Cypress.Commands.add('delete_a_client', ()=>{
+        cy.authenticate().then((response => {      
+            cy.request({
+                method: 'GET', 
+                url: 'http://localhost:3000/api/clients', 
+                headers: {
+                    'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                    'Content-Type': 'application/json'
+                }
+            }).then((response =>{
+                expect(response.status).to.eq(200)
+                let lastID = response.body[response.body.length -1].id
+                cy.log(lastID)
+                cy.request({
+                    method: 'DELETE', 
+                    url: 'http://localhost:3000/api/client/'+lastID, 
+                    headers: {
+                        'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                        'Content-Type': 'application/json'
+                    }
+                }).then((response => {
+                    expect(response.status).to.eq(200)
+                    cy.log(JSON.stringify(response.body))
+                }))
+
+            }))
+        }))
+       
+    })
+    Cypress.Commands.add('edit_a_room', ()=>{
+        cy.authenticate().then((response => {      
+            cy.request({
+                method: 'GET', 
+                url: 'http://localhost:3000/api/rooms', 
+                headers: {
+                    'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                    'Content-Type': 'application/json'
+                }
+            }).then((response =>{
+                expect(response.status).to.eq(200)
+                let lastID = response.body[response.body.length -1].id
+                cy.log(lastID)
+                cy.request({
+                    method: 'PUT', 
+                    url: 'http://localhost:3000/api/room/'+lastID, 
+                    headers: {
+                        'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                        'Content-Type': 'application/json'
+                    },
+                    body: {
+                    "id":lastID,
+                    "category":"double",
+                    "floor":1,
+                    "number":103,
+                    "available":false,
+                    "price":0,
+                    "features":["balcony","ensuite"]
+                }
+                }).then((response => {
+                    expect(response.status).to.eq(200)
+                    cy.log(JSON.stringify(response.body))
+                }))
+
+            }))
+        }))
+       
+    })
+    Cypress.Commands.add('delete_a_room', ()=>{
+        cy.authenticate().then((response => {      
+            cy.request({
+                method: 'GET', 
+                url: 'http://localhost:3000/api/rooms', 
+                headers: {
+                    'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                    'Content-Type': 'application/json'
+                }
+            }).then((response =>{
+                expect(response.status).to.eq(200)
+                let lastID = response.body[response.body.length -1].id
+                cy.log(lastID)
+                cy.request({
+                    method: 'DELETE', 
+                    url: 'http://localhost:3000/api/room/'+lastID, 
+                    headers: {
+                        'X-User-Auth':JSON.stringify(Cypress.env().loginToken), 
+                        'Content-Type': 'application/json'
+                    }
+                }).then((response => {
+                    expect(response.status).to.eq(200)
+                    cy.log(JSON.stringify(response.body))
+                }))
+
+            }))
+        }))
+       
+    })
+    
